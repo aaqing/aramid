@@ -1,0 +1,35 @@
+unreleased
+==========
+
+Features
+--------
+
+- Add a ``_depth`` and ``_category`` arguments to all of the venusian
+  decorators. The ``_category`` argument can be used to affect which actions
+  are registered when performing a ``config.scan(..., category=...)`` with a
+  specific category. The ``_depth`` argument should be used when wrapping
+  the decorator in your own. This change affects ``pyramid.view.view_config``,
+  ``pyramid.view.exception_view_config``,
+  ``pyramid.view.forbidden_view_config``, ``pyramid.view.notfound_view_config``,
+  ``pyramid.events.subscriber`` and ``pyramid.response.response_adapter``
+  decorators. See https://github.com/Pylons/pyramid/pull/3105 and
+  https://github.com/Pylons/pyramid/pull/3122
+
+- Fix the ``pyramid.request.Request`` class name after using
+  ``set_property`` or ``config.add_request_method`` such that the
+  ``str(request.__class__)`` would appear as ``pyramid.request.Request``
+  instead of ``pyramid.util.Request``.
+  See https://github.com/Pylons/pyramid/pull/3129
+
+Bug Fixes
+---------
+
+Deprecations
+------------
+
+Backward Incompatibilities
+--------------------------
+
+Documentation Changes
+---------------------
+
